@@ -1,0 +1,43 @@
+name: Pathtracer Build
+
+on:
+  push:
+    branches:
+    - main
+    paths:
+    - 'pathtracer/**'
+    - 'external/**'
+    
+  pull_request:
+    branches:
+    - main
+    paths:
+    - 'pathtracer/**'
+    - 'external/**'
+
+jobs:
+  ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: configure
+      run: cd pathtracer && mkdir bin && cd bin && cmake ..
+    - name: build
+      run: cd pathtracer/bin && make
+    - name: test
+      run: cd pathtracer && bin/pathtracer -t
+
+#  windows:
+#    runs-on: windows-latest
+#    steps:
+#    - uses: actions/checkout@v4
+#    - name: add msbuild to path
+#      uses: microsoft/setup-msbuild@v1.1
+#      with:
+#         msbuild-architecture: x64
+#    - name: configure
+#      run: cd pathtracer && mkdir bin && cd bin && cmake .. -G "Visual Studio 17 2022" -T v141
+#    - name: build
+#      run: msbuild pathtracer\bin\PathTracer.sln /p:Configuration=Release /p:Platform=x64
+#    - name: test
+#      run: cd pathtracer && bin\Release\pathtracer -t
