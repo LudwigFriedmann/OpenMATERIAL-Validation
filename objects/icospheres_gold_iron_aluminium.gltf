@@ -1,0 +1,296 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.7.33",
+        "copyright" : "(C) 2019-2023, Bayerische Motoren Werke Aktiengesellschaft (BMW AG)",
+        "version" : "2.0",
+        "extensions": {
+            "OpenMaterial_asset_info": {
+                "asset_type": "scene",
+                "id": "89c90831a3764e1aa793bdeab6b0d5c6",
+                "title": "Icospheres",
+                "asset_version": "1",
+                "asset_variation": "1",
+                "creator": "Bayerische Motoren Werke Aktiengesellschaft (BMW AG)",
+                "description": "Icospheres with a different material(gold, iron, aluminium) for each mesh",
+                "creation_date": "2019.04.13. 10:03:00",
+                "category": "wall"
+            }
+        }
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0,
+                1,
+                2
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "IcosphereAu",
+            "extras": {
+                "category": "pole",
+                "id": "f0a84b2328124f5c9d26e91ba4a43ddf"
+            }
+        },
+        {
+            "mesh" : 1,
+            "name" : "IcosphereAl",
+            "translation" : [
+                1.7310649156570435,
+                2.0250191688537598,
+                0
+            ],
+            "extras": {
+                "category": "truck",
+                "id": "00baef166792430c89ee241c8ca714d1"
+            }
+        },
+        {
+            "mesh" : 2,
+            "name" : "IcosphereFe",
+            "translation" : [
+                -1.600418210029602,
+                2.0903422832489014,
+                0
+            ],
+            "extras": {
+                "id": "4f9196a070b5419e9ae843c599660dcf"
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "IcosphereGold",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material": 0
+                }
+            ]
+        },
+        {
+            "name" : "IcosphereAluminium",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5,
+                        "TEXCOORD_0" : 6
+                    },
+                    "indices" : 3,
+                    "material": 1
+                }
+            ]
+        },
+        {
+            "name" : "IcosphereIron",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 7,
+                        "NORMAL" : 8,
+                        "TEXCOORD_0" : 9
+                    },
+                    "indices" : 3,
+                    "material": 2
+                }
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "name" : "gold",
+            "extensions": {
+                "OpenMaterial_reference_link": {
+                    "id": "14a26d5676f611e9bce963d67eb64759",
+                    "title": "gold",
+                    "uri": "../materials/gold.gltf"
+                }
+            }
+        },
+        {
+            "name" : "aluminium",
+            "extensions": {
+                "OpenMaterial_reference_link": {
+                    "id": "fe7d707050e545f19f2658ecacb6ac5e",
+                    "title": "aluminium_demo",
+                    "uri": "../materials/aluminium.gltf"
+                }
+            }
+        },
+        {
+            "name" : "iron",
+            "extensions": {
+                "OpenMaterial_reference_link": {
+                    "id": "3e421be02cfc487aa7bf1f0fa422b5d7",
+                    "title": "iron_demo",
+                    "uri": "../materials/iron.gltf"
+                }
+            }
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 240,
+            "max" : [
+                0.9510578513145447,
+                1,
+                0.9999999403953552
+            ],
+            "min" : [
+                -0.9510578513145447,
+                -1,
+                -0.9999999403953552
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 240,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 240,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 240,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 240,
+            "max" : [
+                0.9510578513145447,
+                1,
+                0.9999999403953552
+            ],
+            "min" : [
+                -0.9510578513145447,
+                -1,
+                -0.9999999403953552
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 240,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 240,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5126,
+            "count" : 240,
+            "max" : [
+                0.9510578513145447,
+                1,
+                0.9999999403953552
+            ],
+            "min" : [
+                -0.9510578513145447,
+                -1,
+                -0.9999999403953552
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 8,
+            "componentType" : 5126,
+            "count" : 240,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 9,
+            "componentType" : 5126,
+            "count" : 240,
+            "type" : "VEC2"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 2880,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2880,
+            "byteOffset" : 2880
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1920,
+            "byteOffset" : 5760
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 480,
+            "byteOffset" : 7680
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2880,
+            "byteOffset" : 8160
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2880,
+            "byteOffset" : 11040
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1920,
+            "byteOffset" : 13920
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2880,
+            "byteOffset" : 15840
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2880,
+            "byteOffset" : 18720
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 1920,
+            "byteOffset" : 21600
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 23520,
+            "uri" : "data/icospheres.bin"
+        }
+    ],
+    "extensionsUsed": [
+        "OpenMaterial_asset_info",
+        "OpenMaterial_reference_link"
+    ]
+}

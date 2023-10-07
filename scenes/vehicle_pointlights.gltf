@@ -1,0 +1,95 @@
+{
+    "asset": {
+        "copyright": "(C) 2019-2023, Bayerische Motoren Werke Aktiengesellschaft (BMW AG)",
+        "generator": "Khronos glTF Blender I/O v1.6.16",
+        "version": "2.0",
+        "extensions": {
+            "OpenMaterial_asset_info": {
+                "id": "aa9f703538af4c4cb95d53379ee8e0f4",
+                "title": "Vehicle scene",
+                "asset_type": "scene",
+                "description": "Vehicle example lighted by 3 point-lights",
+                "asset_version": "1",
+                "asset_variation": "1",
+                "creator": "gltfConverter",
+                "creation_date": "2022.12.08. 11:16:44"
+            }
+        }
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "Scene",
+            "nodes": [
+                1
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "name": "light",
+            "translation" : [
+                0,
+                5,
+                0
+            ],
+            "scale": [
+                1,
+                1,
+                1
+            ],
+            "rotation": [
+                0,
+                0,
+                0,
+                1
+            ],
+            "extensions": {
+                "OpenMaterial_reference_link": {
+                    "id": "67d914de158d403e86a04428f2149243",
+                    "title": "light",
+                    "uri": "../lights/pointLight.gltf"
+                }
+            },
+            "extras": {
+                "id": "a56a454776484d9f8b04710506b7043f"
+            }
+        },
+        {
+            "name": "geometry",
+            "translation": [
+                0,
+                0,
+                0
+            ],
+            "scale": [
+                1,
+                1,
+                1
+            ],
+            "rotation": [
+                0,
+                0,
+                0,
+                1
+            ],
+            "extensions": {
+                "OpenMaterial_reference_link": {
+                    "id": "f7ec284b-583d-4634-8050-5c5a6ada97f6",
+                    "title": "geometry",
+                    "uri": "../objects/vehicle_example.gltf"
+                }
+            },
+            "extras": {
+                "id": "bda2ddb621344c11ba8aa4d1012bb6d1"
+            },
+            "children": [
+                0
+            ]
+        }
+    ],
+    "extensionsUsed": [
+        "OpenMaterial_asset_info",
+        "OpenMaterial_reference_link"
+    ]
+}

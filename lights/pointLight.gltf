@@ -1,0 +1,140 @@
+{
+    "asset" : {
+        "generator" : "Khronos Blender glTF 2.0 I/O",
+        "copyright" : "(C) 2019-2023, Bayerische Motoren Werke Aktiengesellschaft (BMW AG)",
+        "version" : "2.0",
+        "extensions": {
+            "OpenMaterial_asset_info": {
+                "asset_type": "geometry",
+                "id": "67d914de158d403e86a04428f2149243",
+                "title": "point light",
+                "asset_version": "1",
+                "asset_variation": "1",
+                "creator": "Bayerische Motoren Werke Aktiengesellschaft (BMW AG)",
+                "description": "point light source",
+                "creation_date": "2022.12.2. 10:03:00",
+                "category": "parking"
+            }
+        }
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0, 1, 2
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "name" : "Light",
+            "extensions": {
+                "KHR_lights_punctual": {
+                    "light": 0
+                }
+            },
+            "translation": [
+                0,
+                3,
+                7
+            ],
+            "rotation": [
+                0,
+                0,
+                0,
+                1
+            ],
+            "scale": [
+                1,
+                1,
+                1
+            ]
+        },
+        {
+            "name" : "Light",
+            "extensions": {
+                "KHR_lights_punctual": {
+                    "light": 1
+                }
+            },
+            "translation": [
+                3,
+                5,
+                10
+            ],
+            "rotation": [
+                0,
+                0,
+                0,
+                1
+            ],
+            "scale": [
+                1,
+                1,
+                1
+            ]
+        },
+        {
+            "name" : "Light",
+            "extensions": {
+                "KHR_lights_punctual": {
+                    "light": 2
+                }
+            },
+            "translation": [
+                7,
+                7,
+                -5
+            ],
+            "rotation": [
+                0,
+                0,
+                0,
+                1
+            ],
+            "scale": [
+                1,
+                1,
+                1
+            ]
+        }
+    ],
+    "extensions": {
+        "KHR_lights_punctual": {
+            "lights": [
+                {
+                    "type": "point",
+                    "color": [
+                        1,
+                        1,
+                        1
+                    ],
+                    "intensity": 1.0
+                },
+                {
+                    "type": "point",
+                    "color": [
+                        0.4,
+                        1,
+                        0.7
+                    ],
+                    "intensity": 0.7
+                },
+                {
+                    "type": "point",
+                    "color": [
+                        1,
+                        0.3,
+                        0.5
+                    ],
+                    "intensity": 2.0
+                }
+            ]
+        }
+    },
+    "extensionsUsed": [
+        "OpenMaterial_asset_info",
+        "KHR_lights_punctual"
+    ]
+}

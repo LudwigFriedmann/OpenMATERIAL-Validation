@@ -1,0 +1,65 @@
+{
+    "asset": {
+        "copyright": "(C) 2019-2023, Bayerische Motoren Werke Aktiengesellschaft (BMW AG)",
+        "generator": "Khronos glTF Blender I/O v1.6.16",
+        "version": "2.0",
+        "extensions": {
+            "OpenMaterial_asset_info": {
+                "id": "aa9f703538af4c4cb95d53379ee8e0f4",
+                "title": "Multi-object scene",
+                "asset_type": "scene",
+                "description": "Scene referencing multiple objects",
+                "asset_version": "1",
+                "asset_variation": "1",
+                "creator": "gltfConverter",
+                "creation_date": "2022.03.10. 11:16:44"
+            }
+        }
+    },
+    "scene": 0,
+    "scenes": [
+        {
+            "name": "Scene",
+            "nodes": [
+                0
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "name": "icospheres",
+            "translation" : [
+                2,
+                0,
+                2
+            ],
+            "extensions": {
+                "OpenMaterial_reference_link": {
+                    "id": "89c90831a3764e1aa793bdeab6b0d5c6",
+                    "title": "icospheres",
+                    "uri": "../objects/icospheres_gold_iron_aluminium.gltf"
+                }
+            },
+            "extras": {
+                "id": "a56a454776484d9f8b04710506b7043f"
+            }
+        },
+        {
+            "name": "torusRef",
+            "extensions": {
+                "OpenMaterial_reference_link": {
+                    "id": "67d914de158d403e86a04428f2149243",
+                    "title": "torus",
+                    "uri": "../objects/torus_gold.gltf"
+                }
+            },
+            "extras": {
+                "id": "bda2ddb621344c11ba8aa4d1012bb6d1"
+            }
+        }
+    ],
+    "extensionsUsed": [
+        "OpenMaterial_asset_info",
+        "OpenMaterial_reference_link"
+    ]
+}

@@ -1,0 +1,15 @@
+# Binaries and executables
+bin/
+
+# VS code files
+.vs/
+.vscode/
+
+# Doc junks
+doc/
+docs/
+
+# Tests and output
+out/
+outputImgs/
+tests/
