@@ -89,7 +89,7 @@ void DiffuseColorMaterial::getBrdf(const fvec3 inV, const SurfacePoint* sp, cons
 #endif // !FC_VALIDATION
             BDPT_UNUSED(inV);
 
-            constexpr float pdf     = 1.0f / M_PIf;
+            constexpr float pdf     = 1.0f / (2.0f * M_PIf);
             constexpr float brdfPdf = 1.0f / (pdf * M_PIf);
 
             fvec2 uv;

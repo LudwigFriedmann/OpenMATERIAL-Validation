@@ -158,7 +158,7 @@ bool BDPTRenderer::computePath(BDPTPathPart* P, int max_n, fvec3 O, fvec3 R, fve
         mat->modifyFrame(&P[i].m_surfPoint);
         mat->getRayAndBrdf(P[i-1].m_outRay,&P[i].m_surfPoint,P[i].m_outRay,brdf,erad,inv);
 
-        ct=std::abs(inv?dot3(P[i].m_outRay,P[i].m_surfPoint.m_normal):dot3(P[i-1].m_outRay,P[i].m_surfPoint.m_normal));
+        ct=std::abs(dot3(P[i].m_outRay,P[i].m_surfPoint.m_normal));
         assignVector(P[i].m_outFactor,P[i-1].m_outFactor[0]*brdf[0]*ct,P[i-1].m_outFactor[1]*brdf[1]*ct,P[i-1].m_outFactor[2]*brdf[2]*ct);
         if (inv) //Tracing from camera, adding emission directly to Rad
         {
@@ -265,20 +265,54 @@ void BDPTRenderer::computePaths(fvec3 O, fvec3 R, fvec3 radiance, RenderRay &cam
         RenderMaterial* mat;
         for (int i=0; i<lp_len; ++i)
         {
-            assignVector3(lRad,m_ppLPBuf[tid][i].m_outRad);
             lPos=m_ppLPBuf[tid][i].m_surfPoint.m_position;
+            // For i > 0: precompute light sub-path radiance arriving at vertex i (before vertex i's BRDF)
+            fvec3 lRadBase;
+            RenderMaterial* lightMat=nullptr;
+            if (i>0)
+            {
+                if (i==1)
+                {
+                    float dToLight=distance3(m_ppLPBuf[tid][1].m_surfPoint.m_position,
+                                              m_ppLPBuf[tid][0].m_surfPoint.m_position);
+                    float rDterm=computeLightAttenuation(dToLight,lpsource->getAttenuationDistance());
+                    assignVector(lRadBase,m_ppLPBuf[tid][0].m_outRad[0]*rDterm,
+                                          m_ppLPBuf[tid][0].m_outRad[1]*rDterm,
+                                          m_ppLPBuf[tid][0].m_outRad[2]*rDterm);
+                }
+                else
+                {
+                    assignVector3(lRadBase,m_ppLPBuf[tid][i-1].m_outRad);
+                }
+                lightMat=m_pScene->getMaterials()[m_ppLPBuf[tid][i].m_surfPoint.m_pMesh->m_iMatId];
+            }
             for (int j=1; j<cp_len && i+j<=m_pParams->maxPathLength; ++j)
             {
                 cPos=m_ppCPBuf[tid][j].m_surfPoint.m_position;
                 assignVector(LC_dir,cPos[0]-lPos[0],cPos[1]-lPos[1],cPos[2]-lPos[2]);
-                normalize3(LC_dir);
+                float connDist=length3(LC_dir);
+                if (connDist<fEpsilon) continue;
+                LC_dir[0]/=connDist; LC_dir[1]/=connDist; LC_dir[2]/=connDist;
                 if (i==0)
                 {
                     lpsource->getRadianceAlongRay(LC_dir,lpdf,lRad);
-                    float lsc=computeLightAttenuation(distance3(cPos,lPos),lpsource->getAttenuationDistance());
+                    float lsc=computeLightAttenuation(connDist,lpsource->getAttenuationDistance());
                     lRad[0]*=m_pParams->lightScaleValue*lsc;
                     lRad[1]*=m_pParams->lightScaleValue*lsc;
                     lRad[2]*=m_pParams->lightScaleValue*lsc;
+                }
+                else
+                {
+                    assignVector3(lRad,lRadBase);
+                    // Evaluate BRDF at light vertex for connection direction
+                    fvec3 lightBrdf;
+                    lightMat->getBrdf(m_ppLPBuf[tid][i-1].m_outRay,&m_ppLPBuf[tid][i].m_surfPoint,LC_dir,lightBrdf,false);
+                    // Geometry term: cos at light vertex * 1/d²
+                    float cLight=std::abs(dot3(LC_dir,m_ppLPBuf[tid][i].m_surfPoint.m_normal));
+                    float invD2=1.0f/(connDist*connDist);
+                    lRad[0]*=lightBrdf[0]*cLight*invD2;
+                    lRad[1]*=lightBrdf[1]*cLight*invD2;
+                    lRad[2]*=lightBrdf[2]*cLight*invD2;
                 }
                 c=std::abs(dot3(LC_dir,m_ppCPBuf[tid][j].m_surfPoint.m_normal));
                 assignVector(lcRad,lRad[0]*c*m_ppCPBuf[tid][j-1].m_outFactor[0],lRad[1]*c*m_ppCPBuf[tid][j-1].m_outFactor[1],lRad[2]*c*m_ppCPBuf[tid][j-1].m_outFactor[2]);

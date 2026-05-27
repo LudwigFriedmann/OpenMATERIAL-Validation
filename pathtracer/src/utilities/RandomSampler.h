@@ -76,7 +76,7 @@ public:
     {
         float sl;
         do {
-            randN(v, 3);
+            randN(v, 3, -1.0f, 1.0f);
             sl = dot3(v, v);
         }
         while (sl > 1.0f || sl < fEpsilon);

@@ -197,11 +197,11 @@ class BSDFModel final
         }
 
         if (specular) {
-            return BDPT_UNUSED(std::transform(fSpec, fSpec + 3, brdf, Scalef{4.0f * LdotH * VdotN / NdotH / LdotN / (1.0f - std::get<3>(extraArgs))}));
+            return BDPT_UNUSED(std::transform(fSpec, fSpec + 3, brdf, Scalef{4.0f * LdotH / NdotH / (1.0f - std::get<3>(extraArgs))}));
         }
         else {
             return (transmitted) ?
-                BDPT_UNUSED(std::transform(fSpec, fSpec + 3, brdf, Scalef{4.0f * LdotH * VdotN / NdotH / LdotN / std::get<3>(extraArgs)})) :
+                BDPT_UNUSED(std::transform(fSpec, fSpec + 3, brdf, Scalef{4.0f * LdotH / NdotH / std::get<3>(extraArgs)})) :
                 BDPT_UNUSED(std::transform(fDiff, fDiff + 3, brdf, Scalef{M_PIf / LdotN / std::get<3>(extraArgs)}));
         }
     }

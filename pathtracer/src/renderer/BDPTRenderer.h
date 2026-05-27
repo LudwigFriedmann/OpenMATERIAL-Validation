@@ -95,7 +95,7 @@ class BDPTRenderer final
      * @param R     Ray @a direction;
      * @param Rad   For light path - input radiance from the light, for camera path - material emission collected along the path;
      * @param n     Number of points in calculated path (including @a camera or @a light point);
-     * @param inv   Defines if the path calculated from the light source ( @c true ) or from the camera ( @c false );
+     * @param inv   Defines if the path calculated from the camera ( @c true ) or from the light source ( @c false );
      * @param attD  Attenuation distance for light source;
      * 
      * @return @c True if the path exited the scene, @c false otherwise.
